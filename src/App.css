@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -36,3 +37,145 @@
     transform: rotate(360deg);
   }
 }
+
+/* This is the start of the dashboard page  */
+.dashboard_view {
+  height: 100vh;
+ }
+
+.dashboard_view .header { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid #000;
+}
+
+.dashboard_view .header h1 {
+  border-right: 2px solid #000;
+  padding: 15px 50px 15px 5%;
+  margin-bottom: 0;
+  width: 30%;
+}
+
+.dashboard_view .header .icon_container { 
+  padding: 15px 5% 15px 5%;
+}
+
+.dashboard_view .header .icon_container .icon_button{ 
+  background: rgb(118, 215, 196);
+  border-radius: 50%;
+  display: inline-flex;
+  height: 30px; width: 30px;
+  flex-direction: column; justify-content: center;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin-left: 5px;
+}
+
+.dashboard_view .body { 
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.dashboard_view .body .body_content { 
+  padding: 10px 10px;
+  flex: 1;
+}
+
+.dashboard_view .body .nav_container {
+  width: 30%; display: flex;
+  flex-direction: column;
+  border-right: 2px solid #000;
+ }
+
+.nav_button {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 5% 15px 5%;
+  border-bottom: 2px solid #000;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav_button h2 { 
+  margin: 0;
+ 
+}
+
+.nav_button i{
+  font-size: 24px;
+  margin-right: 7px;
+
+}
+
+
+/* This is the end of the dashboard page  */
+
+
+
+/* This is the start of the charts page  */
+
+
+.block_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.block_container .block{
+  padding: 5px 5px;
+  
+}
+.block_container .block.sz-1 { width: calc(10% - 10px); }
+
+.block_container .block.sz-2 { width: calc(20% - 10px); }
+
+.block_container .block.sz-3 { width: calc(30% - 10px); }
+
+.block_container .block.sz-4 { width: calc(40% - 10px); }
+
+.block_container .block.sz-5 { width: calc(50% - 10px); }
+
+.block_container .block.sz-6 { width: calc(60% - 10px); }
+
+.block_container .block.sz-7 { width: calc(70% - 10px); }
+
+.block_container .block.sz-8 { width: calc(80% - 10px); }
+
+.block_container .block.sz-9 { width: calc(90% - 10px); }
+
+.block_container .block.sz-10 { width: calc(100% - 10px); }
+
+.block_content {
+  height: 150px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  -moz-box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+}
+
+.mini_text{
+  font-size: 10px;
+}
+
+
+
+
+
+
+
+
+/* This is the end of the charts page  */
+
+
+
+
+
+
+
+
+
+
+
+
