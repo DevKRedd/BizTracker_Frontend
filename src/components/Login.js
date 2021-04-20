@@ -36,6 +36,7 @@ export default class Login extends Component {
         .then(data => {
                 console.log(data)
                 localStorage.setItem("token", data.jwt)
+                localStorage.setItem("user", JSON.stringify(data.user))
                 this.props.setUser(data.user)
                 this.props.changeView('dashboard')                
             })

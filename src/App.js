@@ -31,18 +31,16 @@ class App extends Component {
     })
   }
 
-  // componentDidMount(){
-  //   if(localStorage.getItem("token")) {
-  //     fetch('http://localhost:3000/api/v1/login', {
-  //       headers: {"Authorization": localStorage.token}
-  //     })
-  //     .then(r => r.json())
-  //     .then(user => {
-  //       // debugger
-  //       this.setUser(user)
-  //       })
-  //   }
-  // }
+  componentDidMount(){
+    if(localStorage.getItem("token")) {
+      if(localStorage.getItem("user")) {
+        let userObject = JSON.parse(localStorage.getItem("user"))
+          this.setUser(userObject)
+      }
+    }
+  }
+  
+
   changeView = (newView) => {this.setState({ view: newView})}
 
   renderView = () => {    

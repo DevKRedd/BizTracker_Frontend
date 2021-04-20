@@ -27,8 +27,9 @@ export default class Dashboard extends Component {
 
     state = {
         view: "", 
+        passData: {},
       }
-      changeView = (newView) => {this.setState({ view: newView})}
+      changeView = (newView, passLineGraph) => {this.setState({ view: newView, passData: passLineGraph})}
 
       changeToHomePage = () => {
         console.log("Click")
@@ -41,15 +42,15 @@ export default class Dashboard extends Component {
         switch (this.state.view) {
     
           case 'carts':
-            return <Charts user={this.state.user} setUser={this.setUser} changeView={this.changeView} />
+            return <Charts user={this.props.user} setUser={this.setUser} changeView={this.changeView} />
           case 'chart data':
             return <ChartData user={this.props.user} setUser={this.setUser} changeView={this.changeView} />
           case 'reports':
             return <Reports setUser={this.setUser} changeView={this.changeView} />
           case 'insights':
-            return <Insights setUser={this.setUser} changeView={this.changeView} />            
+            return <Insights user={this.props.user} setUser={this.setUser} changeView={this.changeView} passData={this.state.passData}/>            
           default: 
-            return <Charts  user={this.state.user} setUser={this.setUser} changeView={this.changeView} />
+            return <Charts  user={this.props.user} setUser={this.setUser} changeView={this.changeView} />
     
         }
       }
@@ -80,19 +81,19 @@ export default class Dashboard extends Component {
 
                 <div className= "body">
                     <div className= "nav_container">
-                        <div className= "nav_button" onClick= {()=> this.changeView("dashbard")}>
+                        <div className= "nav_button" onClick= {()=> this.changeView("dashbard", {})}>
                             <i className="fas fa-tachometer-alt"></i>
                             <h2>Dashboard</h2>
                         </div>
-                        <div className= "nav_button" onClick= {()=> this.changeView("chart data")}>
+                        <div className= "nav_button" onClick= {()=> this.changeView("chart data", {})}>
                             <i className="far fa-chart-bar"></i>
                             <h2>Charts & Data</h2>
                         </div>
-                        <div className= "nav_button" onClick= {()=> this.changeView("reports")}>
+                        <div className= "nav_button" onClick= {()=> this.changeView("reports", {})}>
                             <i className="fas fa-edit"></i>
                             <h2>Reports</h2>
                         </div>
-                        <div className= "nav_button" onClick= {()=> this.changeView("insights")}>
+                        <div className= "nav_button" onClick= {()=> this.changeView("insights", {})}>
                             <i className="fas fa-eye"></i>
                             <h2>Insights</h2>
                         </div>

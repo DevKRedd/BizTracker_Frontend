@@ -147,7 +147,8 @@ const quarterOptions = [
                         dashboard_title: "Monthly Unique Visitors",
                         chart_type: this.state.displayType ,
                         quarter_number: this.state.quarter, 
-                        user_id: 1
+                        user_id: 1,
+                        year: this.state.year
                     }
                 })
             }

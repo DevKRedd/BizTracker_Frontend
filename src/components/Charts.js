@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2'
 import ReactToPdf from "react-to-pdf";
+import Insights from './Insights';
 
 const backgroundColor = [
     'rgba(255, 99, 132, 0.2)',
@@ -43,6 +44,8 @@ export default class Charts extends Component {
             size: info.size,
             trendingPerc: 0,
             trendingDirec: 0,
+            year: info.year,
+            quarterNumber: info.quarter_number,
             datasets: [{
                 label: info.dashboard_title,
                 data: [],
@@ -93,6 +96,7 @@ export default class Charts extends Component {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                "Authorization": localStorage.token
             }  
         }
 
@@ -190,7 +194,10 @@ export default class Charts extends Component {
     }
     // GetUserCharts
     componentDidMount = () =>{
-        this.getUserDashboards(1)
+        // if (localStorage.token != "undefined"){
+            this.getUserDashboards(1)
+        // }
+        
         // this.getChartData()
     }
     render() {
@@ -205,16 +212,22 @@ export default class Charts extends Component {
                         <div className="block_content">
                             <div className= "Welcome">
                                 <p>Welcome</p>
-                                <p>{this.state.user.firstName} {this.state.user.lastName}</p>
-                                <p className= "mini_text"> of {this.state.user.companyName}</p>
+                                <p>{this.props.user.first_name} {this.props.user.last_name}</p>
+                                <p className= "mini_text"> of {this.props.user.company_name}</p>
                             </div>
                         </div>
                     </div>
                     {this.state.displayData.map((item,i)=>
                     <div className={"block sz-" + item.size} key={i}>
-                    <div className="block_content">
+                    <div className="block_content" onClick= {() => this.props.changeView("insights", item)}>
+                        {item.type != "Number" && 
                         <div>
                             {item.trendingPerc}% {(item.trendingDirec < 0?<i className="fas fa-arrow-down" ></i>:<i className="fas fa-arrow-up"></i>)}
+                        </div>
+                    }
+                        <div>
+                            {item.quarterNumber}
+                            {item.year}
                         </div>
                         {this.renderCharts(item)}
                     </div>
