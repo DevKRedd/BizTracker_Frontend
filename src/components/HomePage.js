@@ -31,7 +31,7 @@ const { MediaContextProvider, Media } = createMedia({
  * HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled
  * components for such things.
  */
-const HomepageHeading = ({ mobile }) => (
+const HomepageHeading = ({changeView, mobile }) => (
   <Container text>
     <Header
       as='h1'
@@ -72,6 +72,17 @@ HomepageHeading.propTypes = {
 class DesktopContainer extends Component {
   state = {}
 
+
+  changeToSignUp = () => {
+    console.log("Click")
+    this.props.changeView('signup')
+  }
+  changeToLogIn = () => {
+    console.log("Click")
+    this.props.changeView('login')
+  }
+  
+
   hideFixedMenu = () => this.setState({ fixed: false })
   showFixedMenu = () => this.setState({ fixed: true })
 
@@ -103,20 +114,19 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a' active>
                   Home
                 </Menu.Item>
-                <Menu.Item as='a'>Work</Menu.Item>
                 <Menu.Item as='a'>Company</Menu.Item>
                 <Menu.Item as='a'>Careers</Menu.Item>
                 <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed}>
+                  <Button onClick={this.changeToLogIn} as='a' inverted={!fixed}>
                     Log in
                   </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                  <Button onClick={this.changeToSignUp} as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
                     Sign Up
                   </Button>
                 </Menu.Item>
               </Container>
             </Menu>
-            <HomepageHeading />
+            <HomepageHeading onClick={this.changeToSignUp} />
           </Segment>
         </Visibility>
 
@@ -155,7 +165,6 @@ class MobileContainer extends Component {
             <Menu.Item as='a' active>
               Home
             </Menu.Item>
-            <Menu.Item as='a'>Work</Menu.Item>
             <Menu.Item as='a'>Company</Menu.Item>
             <Menu.Item as='a'>Careers</Menu.Item>
             <Menu.Item as='a'>Log in</Menu.Item>
@@ -184,7 +193,7 @@ class MobileContainer extends Component {
                   </Menu.Item>
                 </Menu>
               </Container>
-              <HomepageHeading mobile />
+              <HomepageHeading  mobile />
             </Segment>
 
             {children}
@@ -199,14 +208,14 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const ResponsiveContainer = ({ children }) => (
+const ResponsiveContainer = ({changeView, children }) => (
   /* Heads up!
    * For large applications it may not be best option to put all page into these containers at
    * they will be rendered twice for SSR.
    */
   <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
+    <DesktopContainer changeView={changeView} >{children}</DesktopContainer>
+    <MobileContainer changeView={changeView} >{children}</MobileContainer>
   </MediaContextProvider>
 )
 
@@ -214,25 +223,23 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const HomePage = () => (
-  <ResponsiveContainer>
+const HomePage = (props) => (
+  <ResponsiveContainer changeView={props.changeView} >
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Companies and Companions
+              We Help Companies Track Key KPIs
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
+              We provide your company easy to use dashboards that highlight your companies most prominent data analytics.
             </p>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
+              We Make Success Easy
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
+              Yes that's right, you too can become a master of your own performance with the exact business insights you need.
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>

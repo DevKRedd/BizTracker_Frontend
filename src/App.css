@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   height: 100vh;
@@ -41,6 +42,11 @@
 /* This is the start of the dashboard page  */
 .dashboard_view {
   height: 100vh;
+  background-color: #212529;
+  border-radius: 0.2857rem;
+  box-shadow: inset 0 -0.1rem 0 rgba(34, 42, 66, 0.25);
+
+  
  }
 
 .dashboard_view .header { 
@@ -48,6 +54,16 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 2px solid #000;
+
+  background-color: transparent;
+  border: 1px solid #2b3553;
+  border-radius: 0.4285rem;
+  color: #ffffff;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .dashboard_view .header h1 {
@@ -55,32 +71,99 @@
   padding: 15px 50px 15px 5%;
   margin-bottom: 0;
   width: 30%;
+  background-color: transparent;
+  border: 1px solid #2b3553;
+  border-radius: 0.4285rem;
+  color: #ffffff;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .dashboard_view .header .icon_container { 
   padding: 15px 5% 15px 5%;
+  
+  
 }
 
 .dashboard_view .header .icon_container .icon_button{ 
   background: rgb(118, 215, 196);
   border-radius: 50%;
   display: inline-flex;
-  height: 30px; width: 30px;
+  height: 35px; width: 35px;
   flex-direction: column; justify-content: center;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   margin-left: 5px;
+
+  position: relative;
+  border-top: 2px solid #e14eca;
+  background: linear-gradient(#1e1e2f, #1e1e24);
+  -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1); }
+  .main-panel[data="blue"] {
+    border-top: 2px solid #1d8cf8; }
+  .main-panel[data="green"] {
+    border-top: 2px solid #00f2c3; }
+  .main-panel[data="primary"] {
+    border-top: 2px solid #e14eca; }
+  .main-panel > .content {
+    padding: 78px 30px 30px 280px;
+    min-height: calc(100vh - 70px); }
+  .main-panel > .navbar {
+    margin-bottom: 0; }
+  .main-panel .header {
+    margin-bottom: 50px; }
+
+.perfect-scrollbar-on .main-panel {
+  height: 100%;
+  max-height: 100%;
+  background-color: transparent;
+  border: 1px solid #2b3553;
+  border-radius: 0.4285rem;
+  color: #ffffff;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .dashboard_view .body { 
   display: flex;
   flex-direction: row;
   height: 100%;
+
+  background-color: transparent;
+  border: 1px solid #2b3553;
+  border-radius: 0.4285rem;
+  color: #ffffff;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+       
+  
 }
 
 .dashboard_view .body .body_content { 
   padding: 10px 10px;
   flex: 1;
+  background-color: transparent;
+  border: 1px solid #2b3553;
+  border-radius: 0.4285rem;
+  color: #ffffff;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .dashboard_view .body .nav_container {
@@ -121,6 +204,16 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+
+  background-color: transparent;
+  border: 1px solid #2b3553;
+  border-radius: 0.4285rem;
+  color: #ffffff;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .block_container .block{
   padding: 5px 5px;
@@ -153,6 +246,16 @@
   -moz-box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+
+  background-color: transparent;
+  border: 1px solid #2b3553;
+  border-radius: 0.4285rem;
+  color: #ffffff;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .mini_text{

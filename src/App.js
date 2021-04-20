@@ -55,7 +55,7 @@ class App extends Component {
       case 'signup':
         return <SignUp setUser={this.setUser} changeView={this.changeView} />
       case 'dashboard':
-        return <Dashboard setUser={this.setUser} changeView={this.changeView} />
+        return <Dashboard user={this.state.user} setUser={this.setUser} changeView={this.changeView} />
       case 'homepage':
         return <HomePage setUser={this.setUser} changeView={this.changeView} />
       default: 

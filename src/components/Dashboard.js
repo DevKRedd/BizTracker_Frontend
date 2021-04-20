@@ -4,6 +4,24 @@ import Charts from './Charts';
 import ChartData from './ChartData';
 import Reports from './Reports';
 import Insights from './Insights';
+import HomePage from './HomePage';
+import {  Icon } from 'semantic-ui-react';
+import { Dropdown, Button, DropdownButton } from 'react-bootstrap';
+
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+  <a
+    href=""
+    ref={ref}
+    onClick={e => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  >
+    {/* Render custom icon here */}
+    &#x25bc;
+    {children}
+  </a>
+));
 
 export default class Dashboard extends Component {
 
@@ -11,6 +29,11 @@ export default class Dashboard extends Component {
         view: "", 
       }
       changeView = (newView) => {this.setState({ view: newView})}
+
+      changeToHomePage = () => {
+        console.log("Click")
+        this.props.changeView('homepage')
+      }
 
       renderView = () => {    
         
@@ -20,11 +43,11 @@ export default class Dashboard extends Component {
           case 'carts':
             return <Charts user={this.state.user} setUser={this.setUser} changeView={this.changeView} />
           case 'chart data':
-            return <ChartData setUser={this.setUser} changeView={this.changeView} />
+            return <ChartData user={this.props.user} setUser={this.setUser} changeView={this.changeView} />
           case 'reports':
             return <Reports setUser={this.setUser} changeView={this.changeView} />
           case 'insights':
-            return <Insights setUser={this.setUser} changeView={this.changeView} />
+            return <Insights setUser={this.setUser} changeView={this.changeView} />            
           default: 
             return <Charts  user={this.state.user} setUser={this.setUser} changeView={this.changeView} />
     
@@ -33,6 +56,7 @@ export default class Dashboard extends Component {
 
 
     render() {
+      
         return (
             <div className= "dashboard_view">
                 <div className= "header">
@@ -40,7 +64,16 @@ export default class Dashboard extends Component {
                     <div className= "icon_container">
                         <i className="fas fa-cog"></i>
                         <div className= "icon_button">
-                        <i className="fas fa-user-astronaut"></i>
+                        
+                        <Dropdown>
+                        <i className="fas fa-user-astronaut"></i><Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+      
+    </Dropdown.Toggle>
+
+    <Dropdown.Menu>
+      <Dropdown.Item eventKey="1"><Button onClick={this.changeToHomePage}>Log Out</Button></Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
                         </div>
                     </div>
                 </div>
