@@ -21,7 +21,7 @@ const { MediaContextProvider, Media } = createMedia({
 class App extends Component {
 
   state = {
-    view: "dashboard", 
+    view: "", 
     user: {}, 
 
   }

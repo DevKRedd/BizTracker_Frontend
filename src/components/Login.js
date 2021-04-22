@@ -50,9 +50,12 @@ export default class Login extends Component {
         return (
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                <Header as='h2' color='teal' textAlign='center'>
+                    <Segment>
+
+                <Header as='h2' color='white' textAlign='center'>
                     <Image src='/logo.png' /> Log-in to your account
                 </Header>
+                    </Segment>
                 <Form size='large'>
                     <Segment stacked>
                     <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={e => this.handleChange(e)} name='email'/>
@@ -66,7 +69,7 @@ export default class Login extends Component {
                         name= 'password'
                     />
 
-                    <Button color='teal' fluid size='large' onClick= {this.handleSubmit} >
+                    <Button className= "login_button" color='teal' fluid size='large' onClick= {this.handleSubmit} >
                         Login
                     </Button>
                     </Segment>

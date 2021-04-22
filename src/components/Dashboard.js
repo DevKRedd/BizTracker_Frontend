@@ -31,9 +31,13 @@ export default class Dashboard extends Component {
       }
       changeView = (newView, passLineGraph) => {this.setState({ view: newView, passData: passLineGraph})}
 
+      
+
       changeToHomePage = () => {
         console.log("Click")
+        localStorage.clear()
         this.props.changeView('homepage')
+        
       }
 
       renderView = () => {    

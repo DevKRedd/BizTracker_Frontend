@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { alignPropType } from 'react-bootstrap/esm/DropdownMenu'
 import { 
     Dropdown, 
     Button,
@@ -192,6 +193,11 @@ const quarterOptions = [
       }
 
     render() {
+        let style = {
+            color: 'white',
+            textAlign: "center",
+            paddingRight: "80px"
+        }
         return (
             <div>
                 <div className= "muv_data_container">
@@ -234,6 +240,7 @@ const quarterOptions = [
                         Display Type: <b>{this.state.displayType}</b>
                         </Form.Field>
                         <Form.Field>
+                        <label style= {style}>Bar Chart</label>
                         <Checkbox
                             radio
                             label='Bar Chart'
@@ -244,6 +251,7 @@ const quarterOptions = [
                         />
                         </Form.Field>
                         <Form.Field>
+                            <label style= {style}>Line Chart</label>
                         <Checkbox
                             radio
                             label='Line Chart'
@@ -254,6 +262,7 @@ const quarterOptions = [
                         />
                         </Form.Field>
                         <Form.Field>
+                        <label style= {style}>Number</label>
                         <Checkbox
                             radio
                             label='Number'
@@ -266,6 +275,7 @@ const quarterOptions = [
                         </Form.Group>
                         <Form.Group>
                         <Form.Field>
+                        <label style= {style}>No Graph</label>
                         <Checkbox
                             radio
                             label='Dont Display Graph'
@@ -277,7 +287,7 @@ const quarterOptions = [
                         </Form.Field>
                         </Form.Group>
 
-                        <h4> This </h4>
+                        <h4> Create Graph </h4>
                         <Form.Field>
                         <Checkbox
                             toggle

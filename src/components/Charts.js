@@ -169,23 +169,25 @@ export default class Charts extends Component {
                 {title: "Apr", dataPoint: 15}]
         }];
         for(let i=0; i < tmpData.length; i++){
-            tmpData[i].size = ((i+2) % 3 === 0 ? 10 : 5);
+            tmpData[i].size = ((i+2) % 3 === 0 ? 15 : 5);
             this.generateChartData(tmpData[i], tmpChartData[i]);
         }
     }
 
     renderCharts = (displayData) => {
         let options = {}
+        let styleobj = { fontSize: 30, color: "#",
+        textAlign: "center"}
         switch (displayData.type) {
     
             case 'Number':
-              return <div className= "num"> {displayData.datasets[0].data[0]} </div>
+              return <div className= "num"> <p style={styleobj}  >{displayData.datasets[0].label}: {displayData.datasets[0].data[0]} </p></div>
             case 'Bar':
                 options = { maintainAspectRatio: false, scales: { yAxes: [{ ticks: { beginAtZero: true } }]}};
-              return <Bar data= {displayData} options={options}/>
+              return <Bar height={10} data= {displayData} options={options}/>
             case 'Line':
                 options = { maintainAspectRatio: false, scales: { yAxes: [{ ticks: { beginAtZero: true } }]}};
-              return <Line data= {displayData} options={options}/>
+              return <Line height={10} data= {displayData} options={options}/>
             default: 
               return <div>N/A</div>
       
@@ -201,6 +203,8 @@ export default class Charts extends Component {
         // this.getChartData()
     }
     render() {
+        let styleobj = { fontSize: 30, color: "#",
+        textAlign: "center"}
         return (
         <div>
             
@@ -211,8 +215,8 @@ export default class Charts extends Component {
                     <div className="block sz-5">
                         <div className="block_content">
                             <div className= "Welcome">
-                                <p>Welcome</p>
-                                <p>{this.props.user.first_name} {this.props.user.last_name}</p>
+                                <p style= {styleobj} >Welcome</p>
+                                <p style= {styleobj}>{this.props.user.first_name} {this.props.user.last_name}</p>
                                 <p className= "mini_text"> of {this.props.user.company_name}</p>
                             </div>
                         </div>
@@ -222,12 +226,15 @@ export default class Charts extends Component {
                     <div className="block_content" onClick= {() => this.props.changeView("insights", item)}>
                         {item.type != "Number" && 
                         <div>
-                            {item.trendingPerc}% {(item.trendingDirec < 0?<i className="fas fa-arrow-down" ></i>:<i className="fas fa-arrow-up"></i>)}
+                            {Math.round(item.trendingPerc)}% {(item.trendingDirec < 0?<i className="fas fa-arrow-down" ></i>:<i className="fas fa-arrow-up"></i>)}
                         </div>
                     }
                         <div>
-                            {item.quarterNumber}
-                            {item.year}
+                            Quarter Number: {item.quarterNumber}
+                            
+                        </div>
+                        <div>
+                            Year: {item.year}
                         </div>
                         {this.renderCharts(item)}
                     </div>
